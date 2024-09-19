@@ -1,0 +1,65 @@
+/* Mengatur margin, padding, dan mencegah scroll */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Membuat container untuk meletakkan lampu dan tombol di tengah layar */
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #000; /* Latar belakang hitam untuk kontras dengan lampu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Agar tombol berada di bawah lampu */
+}
+
+/* Desain tombol switch */
+button {
+    width: 100px;
+    padding: 10px 0;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Desain lampu saat keadaan off */
+.lamp {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+    background-color: yellow;
+    border-radius: 50%; /* Membuat lampu berbentuk lingkaran */
+    animation: off 1s ease-in-out both;
+}
+
+/* Lampu menyala */
+.lamp.on {
+    animation: on 1s ease-in-out both;
+}
+
+/* Animasi saat lampu menyala */
+@keyframes on {
+    from {
+        filter: brightness(0.4);
+    }
+    to {
+        filter: brightness(1);
+        box-shadow: 0px 0px 50px yellow;
+    }
+}
+
+/* Animasi saat lampu mati */
+@keyframes off {
+    from {
+        filter: brightness(1);
+        box-shadow: 0px 0px 50px yellow;
+    }
+    to {
+        filter: brightness(0.4);
+    }
+}
